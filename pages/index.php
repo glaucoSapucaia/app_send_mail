@@ -36,20 +36,24 @@
                     <!-- card S -->
                     <div class="card-body fw-bold">
                         <!-- form S -->
-                        <form action="">
+                        <!-- action= -> destino de dados do form -->
+                        <!-- method= -> post, para esconder dados -->
+
+                        <!-- name= -> Campo necessário para a recuperação de dados do programa -->
+                        <form action="../assets/processa_envio.php" method='post'>
                             <div class="form-group mb-4">
                                 <label for="para">Para</label>
-                                <input type="text" class="form-control" id='para' placeholder='teste@teste.com'>
+                                <input name='para' type="text" class="form-control" id='para' placeholder='teste@teste.com'>
                             </div>
 
                             <div class="form-group mb-4">
                                 <label for="assunto">Assunto</label>
-                                <input type="text" class="form-control" id='assunto' placeholder='Assunto do e-mail'>
+                                <input name='assunto' type="text" class="form-control" id='assunto' placeholder='Assunto do e-mail'>
                             </div>
 
                             <div class="form-group mb-4">
                                 <label for="mensagem">Mensagem</label>
-                                <textarea name="" id="mensagem" class="form-control"></textarea>
+                                <textarea name="mensagem" id="mensagem" class="form-control"></textarea>
                             </div>
 
                             <!-- btn -->
