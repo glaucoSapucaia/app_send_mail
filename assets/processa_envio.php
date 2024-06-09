@@ -74,7 +74,7 @@
 
         //Recipients
         $mail->setFrom('nulltreads@gmail.com', 'Remetente PHPMailer');
-        $mail->addAddress('nulltreads@gmail.com', 'Destinatario PHPMailer');     //Add a recipient
+        $mail->addAddress($msg->__get('para'));     //Add a recipient
         // $mail->addAddress('ellen@example.com');               //Name is optional
         // $mail->addReplyTo('info@example.com', 'Information');   Encaminhar mais respostas para uma terceira pessoa
         // $mail->addCC('cc@example.com');           destinatario em cópia
@@ -86,12 +86,12 @@
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
-        $mail->Subject = 'Assunto do email';
-        $mail->Body    = 'Conteudo do <strong>e-mail</strong>';
-        $mail->AltBody = 'Conteudo do e-mail';
+        $mail->Subject = $msg->__get('assunto');
+        $mail->Body    = $msg->__get('mensagem');
+        $mail->AltBody = 'Infelizmente seu email não aceita a renderização de HTML.';
 
         $mail->send();
-        echo 'Message has been sent';
+        echo 'E-mail enviado com sucesso!';
     } catch (Exception $e) {
         echo "Não foi possivel enviar o email. Detalhes do erro: {$mail->ErrorInfo}";
     }
